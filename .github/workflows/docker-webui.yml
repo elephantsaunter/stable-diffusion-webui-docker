@@ -16,8 +16,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: login Docker image
       run: |
-        # 登录阿里云镜像仓库
-        docker login -u 393497238@qq.com -p ${{ secrets.ALI_DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com      
+          # 登录阿里云镜像仓库
+          docker login -u 393497238@qq.com -p ${{ secrets.ALI_DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com      
         
     - name: Build the Docker image
       run: |
@@ -26,5 +26,5 @@ jobs:
           
     - name: Push Docker image
       run: | 
-        docker push registry.cn-hangzhou.aliyuncs.com/syai/stable_webui:latest
+          docker push registry.cn-hangzhou.aliyuncs.com/syai/stable_webui:latest
  
