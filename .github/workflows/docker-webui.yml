@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+          cd /data/stable_webui_docker/services/AUTOMATIC1111
+          DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/syai/stable_webui:latest
+          
+    - name: Push Docker image
+      run: |
+        docker push registry.cn-hangzhou.aliyuncs.com/syai/stable_webui:latest
+ 
