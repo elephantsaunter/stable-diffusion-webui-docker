@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-          cd /data/stable_webui_docker/services/AUTOMATIC1111
+          cd services/AUTOMATIC1111
           DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/syai/stable_webui:latest
           
     - name: Push Docker image
