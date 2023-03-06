@@ -18,7 +18,6 @@ jobs:
     - name: login Docker image
       run: |
           # 登录阿里云镜像仓库
-          echo  ${{ secrets.SuperSecret }}
           docker login --username=393497238@qq.com --password=${{ secrets.ALI_DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com      
         
     - name: Build the Docker image
