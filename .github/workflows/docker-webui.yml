@@ -21,5 +21,7 @@ jobs:
           
     - name: Push Docker image
       run: |
+        # 登录阿里云镜像仓库
+        docker login --username=393497238@qq.com --password=${{ secrets.ALI_DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
         docker push registry.cn-hangzhou.aliyuncs.com/syai/stable_webui:latest
  
