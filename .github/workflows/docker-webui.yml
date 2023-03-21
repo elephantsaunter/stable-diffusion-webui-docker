@@ -18,14 +18,14 @@ jobs:
     - name: login Docker image
       run: |
           # 登录阿里云镜像仓库
-          docker login --username=393497238@qq.com --password=${{ secrets.ALI_DOCKER_PASSWORD }} registry.us-west-1.aliyuncs.com     
+          docker login --username=393497238@qq.com --password=${{ secrets.ALI_DOCKER_PASSWORD }} registry.cn-hongkong.aliyuncs.com     
         
     - name: Build the Docker image
       run: |
           cd services/AUTOMATIC1111
-          DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag registry.us-west-1.aliyuncs.com/syai/stable_webui:latest
+          DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag registry.cn-hongkong.aliyuncs.com/syai/stable_webui:latest
           
     - name: Push Docker image
       run: | 
-          docker push registry.us-west-1.aliyuncs.com/syai/stable_webui:latest
+          docker push registry.cn-hongkong.aliyuncs.com/syai/stable_webui:latest
  
