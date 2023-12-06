@@ -24,7 +24,7 @@ RUN --mount=type=cache,target=/root/.cache/pip  \
 
 WORKDIR ${ROOT}
 
-ARG BRANCH=master SHA=8607c2d42d10b0108de02528e813cc703e58813f
+ARG BRANCH=master SHA=7e941f9f247f9b013a33c2e7d117466108414e99
 RUN --mount=type=cache,target=/root/.cache/pip \
   git fetch && \
   git checkout ${BRANCH} && \
@@ -33,6 +33,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 # add info
 COPY . /docker/
+RUN cp /docker/extra_model_paths.yaml ${ROOT}
+RUN chmod u+x /docker/entrypoint.sh
 RUN cp /docker/extra_model_paths.yaml ${ROOT}
 
 ENV NVIDIA_VISIBLE_DEVICES=all
