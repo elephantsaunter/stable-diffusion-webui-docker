@@ -82,4 +82,6 @@ if [ -f "/data/config/auto/startup.sh" ]; then
   popd
 fi
 
+unset https_proxy; unset http_proxy; unset all_proxy; 
+
 exec "$@"
